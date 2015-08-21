@@ -29,7 +29,12 @@
 			<label for="studentsearch">Search by Student Id:</label> <input type="text"
 					class="form-control" name="studentsearch"
 					placeholder="Search by Student Id">
-			
+					<p></p>
+			<select name="class">
+				<option value="Earth Science">9:30 Earth Science </option>
+				<option value="Intro to Physics">1pm Intro to Physics</option>
+				
+			</select>
 			<p>Search by Assignment Type</p>
 			<select name="typesearch">
 				<option value="Homework">Homework</option>

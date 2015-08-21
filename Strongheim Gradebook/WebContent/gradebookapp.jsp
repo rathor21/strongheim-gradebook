@@ -27,12 +27,22 @@
 <body>
 	<div class="container">
 		<h2>Gradebook</h2>
+		<form role="form" action="SearchGradebook" method="post">
+				<button type="submit" class="btn btn-default" name="search">Search</button>
+			</form>
 		<form role="form" action="GradebookApp" method="post">
 			<div class="form-group">
 				<label for="studentId">Student Id:</label> <input type="text"
 					class="form-control" name="studentId"
 					placeholder="Enter Student Id">
 			</div>
+
+			<select name="className">
+				<option value="Earth Science">9:30 Earth Science</option>
+				<option value="Intro to Physics">1pm Intro to Physics</option>
+
+			</select>
+
 			<div class="form-group">
 				<label for="assignment">Assignment:</label> <input type="text"
 					class="form-control" name="assignment"
@@ -54,21 +64,40 @@
 			</div>
 			<div class="form-group">
 				<label for="grade">Grade:</label> <input type="number"
-					class="form-control" min="0" max="100" name="grade" placeholder="Enter Grade">
+					class="form-control" min="0" max="100" name="grade"
+					placeholder="Enter Grade">
 			</div>
-
+			
+			<div class="form-group">
+				<label for="homeworkweight">Homework Weight:</label> <input
+					type="number" step="0.01 class="form-control" 
+					name="homeworkweight" placeholder="Enter Weight">
+			</div>
+			<div class="form-group">
+				<label for="quizweight">Quiz Weight:</label> <input type="number" step="0.01
+					class="form-control"  name="quizweight"
+					placeholder="Enter Weight">
+			</div>
+			<div class="form-group">
+				<label for="testweight">Test Weight:</label> <input type="number" sstep="0.01
+					class="form-control"  name="testweight"
+					placeholder="Enter Weight">
+			</div>
+			<div class="form-group">
+				<label for="projectweight">Project Weight:</label> <input
+					type="number" step="0.01 class="form-control"
+					name="projectweight" placeholder="Enter Weight">
+			</div>
 			<button type="submit" class="btn btn-default" name="submit">Submit</button>
-					</form>
+		</form>
 		<p></p>
-<form role="form" action="SearchGradebook" method="post">
-<button type="submit" class="btn btn-default" name="search">Search</button>
-					</form>
+
 
 	</div>
 	</div>
 	</div>
-</body>
-
 
 </body>
+
+
 </html>

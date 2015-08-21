@@ -42,7 +42,7 @@ public class GradebookApp extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String button = request.getParameter("submit");
-		System.out.println(button);
+		// System.out.println(button);
 		if (button == null) {
 		} else {
 			// read form fields
@@ -51,16 +51,49 @@ public class GradebookApp extends HttpServlet {
 			String type = "";
 			String date = "";
 			String grade = "";
+			String className = "";
+			String homeworkweight = "";
+			String quizweight = "";
+			String testweight = "";
+			String projectweight = "";
+
 			studentId = request.getParameter("studentId");
+			className = request.getParameter("className");
 			assignment = request.getParameter("assignment");
 			type = request.getParameter("type");
 			date = request.getParameter("date");
 			grade = request.getParameter("grade");
+			date = request.getParameter("date");
+			homeworkweight = request.getParameter("homeworkweight");
+			quizweight = request.getParameter("quizweight");
+			testweight = request.getParameter("testweight");
+			projectweight = request.getParameter("projectweight");
+
+			String sqlrequest = "Insert into gradeweights (homeworkweight, quizweight,testweight,projectweight) values ("
+					+ homeworkweight
+					+ ","
+					+ quizweight
+					+ ","
+					+ testweight
+					+ "," + projectweight+")";
+
+			String sql = "INSERT INTO shgradebook (studentId,className,assignment,assignmentType,assignmentDate,grade) values('"
+					+ studentId
+					+ "','"
+					+ className
+					+ "','"
+					+ assignment
+					+ "','"
+					+ type
+					+ "',TO_Date('"
+					+ date
+					+ "','yyyy-mm-dd'),"
+					+ grade + ")";
 			
-			String sql = "INSERT INTO shgradebook (studentId,assignment,assignmentType,assignmentDate,grade) values('"+studentId+"','"+assignment+"','"+type+"',TO_Date('"+date+"','yyyy-mm-dd'),"+grade+")";
-		System.out.println(sql);
+			System.out.println(sql);
 			try {
 				updateDB(sql);
+				updateDB(sqlrequest);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
